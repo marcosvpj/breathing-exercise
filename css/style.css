@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  margin: 0 auto;
+  background-color: #afe1f4;
+  -webkit-animation-name: stretch;
+          animation-name: stretch;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s; 
+  -webkit-animation-timing-function: ease-out; 
+          animation-timing-function: ease-out; 
+  -webkit-animation-delay: 0; 
+          animation-delay: 0;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  border: 4px solid #FDC830;
+}
+
+@-webkit-keyframes stretch {
+  0% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+  25%, 50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    background-color: #F37335;
+    border-radius: 100%;
+  }
+  75% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+  75%, 100% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+}
+
+@keyframes stretch {
+  0% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+  25%, 50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    background-color: #F37335;
+    border-radius: 100%;
+  }
+  75% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+  75%, 100% {
+    -webkit-transform: scale(.5);
+            transform: scale(.5);
+    background-color: #FDC830;
+    border-radius: 100%;
+  }
+}
+
+.element .action {
+  margin: 1em auto;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.8em;
+}
+.element .action::before {
+  -webkit-animation-name: grow-content;
+          animation-name: grow-content;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s; 
+  -webkit-animation-timing-function: ease-out; 
+          animation-timing-function: ease-out; 
+  -webkit-animation-delay: 0; 
+          animation-delay: 0;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  content: '';
+  color: black;
+}
+@-webkit-keyframes grow-content {
+  0%, 24%, 100% {
+    content: 'Breathe in';
+  }
+  25%, 49% {
+    content: 'Hold';
+  }
+  50%, 74% {
+    content: 'Breathe out';
+  }
+  75%, 99% {
+    content: 'Hold';
+  }
+  
+}
+@keyframes grow-content {
+  0%, 24%, 100% {
+    content: 'Inspire';
+  }
+  25%, 49% {
+    content: 'Segure';
+  }
+  50%, 74% {
+    content: 'Expire';
+  }
+  75%, 99% {
+    content: 'Segure';
+  }
+  
+}
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFEFBA;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
