@@ -5,7 +5,7 @@
     "background_color": "#ff9100",
     "display": "fullscreen",
     "scope": "/breathing-exercise/",
-    "start_url": "/breathing-exercise/",
+    "start_url": "/breathing-exercise/?utm_source=homescreen",
     "icons": [
         {
             "src": "images/icons/icon-72x72.png",
