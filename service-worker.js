@@ -2,11 +2,11 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
         caches.open('airhorner').then(function(cache) {
             return cache.addAll([
-                '/',
-                '/index.html',
-                '/index.html?utm_source=homescreen',
-                '/?utm_source=homescreen',
-                '/css/style.css'
+                '/breathing-exercise/',
+                '/breathing-exercise/index.html',
+                '/breathing-exercise/index.html?utm_source=homescreen',
+                '/breathing-exercise/?utm_source=homescreen',
+                '/breathing-exercise/css/style.css'
             ]);
         })
     );
