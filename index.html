@@ -9,15 +9,102 @@
   <link rel='manifest' href='manifest.json'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+  body,
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: #FFEFBA;
+    background: linear-gradient(to bottom, #FFFFDA, #FFEFBA);
+    flex-direction: column;
+  }
+  .element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vw;
+    width: 75vw;
+    max-width: 250px;
+    max-height: 250px;
+    margin: 0 auto;
+    background-color: #afe1f4;
+    animation-name: stretch;
+    animation-duration: 16s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    border: 4px solid #FDC830;
+  }
+  #mute {
+    margin: 10vh auto;
+    display: flex;
+    font-family: monospace;
+    text-transform: lowercase;
+    padding: 1em;
+    color: black;
+
+    transition-property: all;
+    transition-duration: .5s;
+  }
+  #mute:hover {
+    background-color: aquamarine;
+    color: white;
+  }
+  #mute:active {
+    font-weight: bold;
+  }
+  </style>
 </head>
 
 <body>
   <div class="element">
     <span class="action"></span>
+    <audio id="bell" src="bell.wav" preload="auto"></audio>
+  </div>
+
+  <div>
+      <a id="mute" onclick="mute()">Mute</a>
   </div>
 </body>
 
 <script>
+  var bell = document.getElementById('bell');
+  var timer = null;
+  var isMute = true;
+
+  updateMuteButton()
+  ringBell();
+
+  function mute() {
+    isMute = !isMute;
+    updateMuteButton();
+  }
+  function updateMuteButton() {
+    if (isMute) {
+      document.getElementById("mute").innerHTML = "play"
+    } else {
+      document.getElementById("mute").innerHTML = "mute"
+    }
+  }
+  function ringBell() {
+    timer = setTimeout(function() {
+      bell.pause();
+      bell.currentTime = 0;
+      if (!isMute) bell.play();
+      console.log( (new Date()).getSeconds() );
+      ringBell();
+    }, 4000);
+  }
+
   if ('serviceWorker' in navigator) {
     console.log("Will the service worker register?");
     navigator.serviceWorker.register('service-worker.js')
