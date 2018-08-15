@@ -88,6 +88,7 @@
     isMute = !isMute;
     updateMuteButton();
   }
+
   function updateMuteButton() {
     if (isMute) {
       document.getElementById("mute").innerHTML = "play"
@@ -95,12 +96,13 @@
       document.getElementById("mute").innerHTML = "mute"
     }
   }
+
   function ringBell() {
     timer = setTimeout(function() {
       bell.pause();
       bell.currentTime = 0;
       if (!isMute) bell.play();
-      console.log( (new Date()).getSeconds() );
+
       ringBell();
     }, 4000);
   }
