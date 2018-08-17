@@ -1,8 +1,8 @@
 {
     "name": "Respire",
     "short_name": "Respire",
-    "theme_color": "#ff9100",
-    "background_color": "#ff9100",
+    "theme_color": "#fff8cb",
+    "background_color": "#fff8cb",
     "display": "fullscreen",
     "scope": "/breathing-exercise/",
     "start_url": "/breathing-exercise/?utm_source=homescreen",
