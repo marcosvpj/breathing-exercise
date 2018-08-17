@@ -156,9 +156,10 @@
       </div>
 
       <div class="button">
-        <a id="mute" onclick="mute()">sound on</a>
+        <a id="mute" onclick="mute()">ligar som</a>
       </div>
     </div>
+    <audio id="background-sound" src="background-ocean.mp3" preload="auto"></audio>
   </div>
 </body>
 
@@ -197,7 +198,7 @@
 
   function initBell() {
     updateMuteButton()
-    ringBell();
+    // ringBell();
   }
 
   function stopBell() {
@@ -208,14 +209,20 @@
 
   function mute() {
     isMute = !isMute;
+    var backgroundSound = document.getElementById('background-sound');
+    if (!isMute) {
+      backgroundSound.play();
+    } else {
+      backgroundSound.pause();
+    }
     updateMuteButton();
   }
 
   function updateMuteButton() {
     if (isMute) {
-      document.getElementById("mute").innerHTML = "sound on"
+      document.getElementById("mute").innerHTML = "ligar som"
     } else {
-      document.getElementById("mute").innerHTML = "sound off"
+      document.getElementById("mute").innerHTML = "desligar som"
     }
   }
 
