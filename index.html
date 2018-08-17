@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <title>Breathing Excercise</title>
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0'>
-  <meta name="theme-color" content="#FFFFDA"/>
+  <meta name="theme-color" content="#fff8cb"/>
   <link rel='manifest' href='manifest.json'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
   body,
   html {
     height: 100%;
@@ -24,6 +25,18 @@
     background: linear-gradient(to bottom, #FFFFDA, #FFEFBA);
     flex-direction: column;
   }
+
+  h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 5em;
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 10em;
+    font-family: monospace;
+  }
+
   .element {
     display: flex;
     align-items: center;
@@ -119,6 +132,8 @@
 <body>
   <div id="start-screen" class="screen">
     <div class="section section-main">
+      <h1>Pare e Respire</h1>
+      <h2 id="total_cicles"></h2>
     </div>
     <div class="section section-menu">
       <div id="start" class="button" onclick="meditate()">
@@ -155,6 +170,7 @@
     var meditation_screen = document.getElementById('meditation-screen');
     meditation_screen.classList.remove('hidden');
 
+    loop(0);
     initBell();
   }
 
@@ -164,6 +180,12 @@
 
     var meditation_screen = document.getElementById('meditation-screen');
     meditation_screen.classList.add('hidden');
+
+    var storage = window.localStorage;
+    var count = storage.getItem('total_cicles');
+
+    var total_cicles_el = document.getElementById('total_cicles');
+    total_cicles_el.innerHTML = 'Você completou ' + count + ' ciclos';
 
     stopBell();
   }
@@ -205,6 +227,18 @@
 
       ringBell();
     }, 4000);
+  }
+
+  function loop(count) {
+    timer = setTimeout(function() {
+      count++;
+      loop(count);
+    }, 20000);
+
+    console.log({count});
+
+    var storage = window.localStorage;
+    storage.setItem('total_cicles', count);
   }
 
   if ('serviceWorker' in navigator) {
